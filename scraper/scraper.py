@@ -10,7 +10,7 @@ import re
 # Email Configuration
 # ========================
 SENDER = "ismail.builds@gmail.com"
-PASSWORD = "kwvp gxgg zoav yuuz"  # Gmail App Password
+PASSWORD = ""  # Gmail App Password
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 465
 
