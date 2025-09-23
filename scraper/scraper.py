@@ -14,10 +14,18 @@ import os
 load_dotenv()
 
 # Email Configuration
+<<<<<<< HEAD
 SENDER = os.getenv("SENDER")
 PASSWORD = os.getenv("PASSWORD")  # Gmail App Password
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 465))
+=======
+# ========================
+SENDER = "ismail.builds@gmail.com"
+PASSWORD = ""  # Gmail App Password
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 465
+>>>>>>> d8bf37988f2a216f406aaa8b3a36c848a1bafc5e
 
 # MySQL Configuration
 db = mysql.connector.connect(
