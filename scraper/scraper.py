@@ -5,23 +5,26 @@ import smtplib
 from email.mime.text import MIMEText
 import time
 import re
+from dotenv import load_dotenv
+import os
 
 # ========================
+# Load environment variables
+# ========================
+load_dotenv()
+
 # Email Configuration
-# ========================
-SENDER = "ismail.builds@gmail.com"
-PASSWORD = "kwvp gxgg zoav yuuz"  # Gmail App Password
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 465
+SENDER = os.getenv("SENDER")
+PASSWORD = os.getenv("PASSWORD")  # Gmail App Password
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 465))
 
-# ========================
 # MySQL Configuration
-# ========================
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="price_tracker"
+    host=os.getenv("DB_HOST", "localhost"),
+    user=os.getenv("DB_USER", "root"),
+    password=os.getenv("DB_PASSWORD", ""),
+    database=os.getenv("DB_NAME", "price_tracker")
 )
 cursor = db.cursor(dictionary=True)
 
@@ -129,4 +132,4 @@ if __name__ == "__main__":
         print("⏳ Checking prices...")
         check_prices()
         print("✅ Done. Sleeping for 1 hour...\n")
-        time.sleep(3600)  # wait 1 hour before running again
+        time.sleep(3600)
